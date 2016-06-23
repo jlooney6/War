@@ -1,7 +1,6 @@
 ### How long does an average game of War take? ###
 
-run_jim <- function(deck, n_runs = 100, n_games_per_run = 100,
-                    secs_per_hand = sph, secs_per_war = sph) {
+run_jim <- function(deck, n_runs, n_games_per_run, secs_per_hand, secs_per_war) {
   for (num_runs in 1:n_runs) {
     times <- c()
     for (num_games in 1:n_games_per_run) {
@@ -48,8 +47,8 @@ run_jim <- function(deck, n_runs = 100, n_games_per_run = 100,
 }
 
 # Assume 4 seconds for a 2-card hand, +8 seconds for a war
-sph <- 4
-spw <- 8
+secs_per_hand <- 4
+secs_per_war <- 8
 
 # Initialize some stuff
 all_times <- c()
@@ -65,6 +64,5 @@ get_rank <- function(card, ranks) {
   which(substr(card, 1, 1) == ranks)
 }
 
-# avg_game_lengths <- run_jim(deck, 100, 100)
-# message("Average game length (mins): ", mean(averages))
-
+avg_game_lengths <- run_jim(deck, 100, 100, secs_per_hand, secs_per_war)
+message("Average game length (mins): ", mean(avg_game_lengths))
