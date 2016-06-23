@@ -45,7 +45,7 @@ play_n_games <- function(n, deck, secs_per_hand, secs_per_war) {
   i <- 0
   res <- purrr::rerun(n, {
     i <- i + 1
-    if(i %% 100 == 0) message("Run ", i, " / ", n)
+    if(i %% 100 == 0) message("Run ", i, " of ", n)
     play_one_game(deck, secs_per_hand, secs_per_war)
   })
   unlist(res)
