@@ -46,10 +46,6 @@ run_jim <- function(deck, n_runs, n_games_per_run, secs_per_hand, secs_per_war) 
   averages
 }
 
-# Assume 4 seconds for a 2-card hand, +8 seconds for a war
-secs_per_hand <- 4
-secs_per_war <- 8
-
 # Initialize some stuff
 all_times <- c()
 averages <- c()
@@ -64,5 +60,5 @@ get_rank <- function(card, ranks) {
   which(substr(card, 1, 1) == ranks)
 }
 
-avg_game_lengths <- run_jim(deck, 100, 100, secs_per_hand, secs_per_war)
+avg_game_lengths <- run_jim(deck, 100, 100, secs_per_hand = 4, secs_per_war = 8)
 message("Average game length (mins): ", mean(avg_game_lengths))
